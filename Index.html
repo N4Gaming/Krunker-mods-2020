@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Add icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      .btn {
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .topright {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        font-size: 18px;
+      }
+
+      /* Darker background on mouse-over */
+      .btn:hover {
+        background-color: RoyalBlue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center;">
+      <span style="color: #333333;"><strong>Krunker Hacks&nbsp;</strong></span>
+    </h1>
+    <h2 style="text-align: center;">
+      <em
+        >A simple hack menu for&nbsp;<a href="https://krunker.io/"
+          >Krunker Patch 1.9.9.1</a
+        ></em
+      >
+    </h2>
+    <blockquote>
+      <p style="font-size: 1.5em; text-align: center;">
+        <em
+          ><span style="color: #003366;"
+            >Brought to you by Ducksquadddd and ONYX6227</span
+          ></em
+        >
+      </p>
+    </blockquote>
+    <p style="text-align: center;">
+      <button id="install_btn" class="btn">Download Zip File</button>
+    </p>
+  </body>
+</html>
+
+<script>
+  const paragraph = document.getElementById("paragraph");
+  const install_btn = document.getElementById("install_btn");
+
+  install_btn.addEventListener("click", updateButton);
+
+  function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+      if (new Date().getTime() - start > milliseconds) {
+        break;
+      }
+    }
+  }
+
+  function downloadURL(url) {
+    var hiddenIFrameID = "hiddenDownloader",
+      iframe = document.getElementById(hiddenIFrameID);
+    if (iframe === null) {
+      iframe = document.createElement("iframe");
+      iframe.id = hiddenIFrameID;
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
+    }
+    iframe.src = url;
+  }
+
+  function updateButton() {
+    if (install_btn.textContent === " Install") {
+      paragraph.textContent = "Installing Krunker Mod";
+      install_btn.textContent = "Download";
+      sleep(2000);
+      window.open("ext/Krunker Skid.zip");
+    } else {
+      paragraph.textContent = "Downloading Krunker Mod";
+      install_btn.textContent = "Install";
+      sleep(2000);
+      downloadURL("ext/Krunker Skid.zip");
+    }
+  }
+</script>
